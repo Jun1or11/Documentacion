@@ -28,6 +28,7 @@ Adicionalmente, se configuró el sistema de **ruteo de la aplicación** y un cli
 
 ----------------------------------------------------------------------------------------------------------
 | Fecha | Commit | Título | Descripción |
+|------|------|------|------|
 | 03/03/26 | adae8df | Setup inicial - layout, dashboard KPI ventas, mock data | Configuración inicial del proyecto frontend, incluyendo estructura base, componentes principales, páginas iniciales, sistema de rutas y datos simulados para los KPIs de ventas. Implementación de layout responsivo y diseño del dashboard para visualización de indicadores de desempeño. |
 | 03/03/26 | 47d8cc9 | gitignore upd | Se actualizó el archivo .gitignore agregando exclusiones para variables de entorno (.env) y archivos de caché generados por herramientas como ESLint y TypeScript, con el objetivo de evitar que estos archivos temporales o sensibles sean subidos al repositorio. |
 | 03/03/26 | 50ffe7d | dashboard fixes + perfil | Se realizaron mejoras en la interfaz del dashboard y se implementó la nueva página de perfil de usuario. Se ajustaron estilos y colores en el componente Layout, se mejoraron gráficos y visualización de KPIs en el Dashboard, y se creó la página /Perfil.tsx con información del colaborador usando datos mock. Además, se actualizó el router para permitir la navegación hacia la nueva vista de perfil. |
