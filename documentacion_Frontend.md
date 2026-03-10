@@ -1,4 +1,4 @@
-# Documentación de Commits / Frontend_Intranet
+# Documentación de Commits / Intranet_Frontend_
 
 ## Introducción
 En esta sección se documentan los principales commits realizados durante el desarrollo del frontend del proyecto. 
