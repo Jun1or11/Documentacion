@@ -11,9 +11,9 @@ El primer commit corresponde a la configuración inicial del proyecto frontend.
 Se estableció la estructura base utilizando **Vite, React y TypeScript**, además de configuraciones necesarias 
 para el desarrollo como ESLint y los archivos de configuración del proyecto.
 
-También se crearon los primeros componentes y páginas del sistema, como el **Layout principal**, 
-la página de **Dashboard** con KPIs de ventas usando datos simulados (mock data), y la página de **Login**. 
-Adicionalmente, se configuró el sistema de **ruteo de la aplicación** y un cliente inicial para la conexión con la API.
+También se crearon los primeros componentes y páginas del sistema, como el Layout principal, 
+la página de Dashboard con KPIs de ventas usando datos simulados (mock data), y la página de Login. 
+Adicionalmente, se configuró el sistema de rutas de la aplicación y un cliente inicial para la conexión con la API.
 
 ----------------------------------------------------------------------------------------------------------
 | Fecha | Commit | Título | Descripción |
