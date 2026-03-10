@@ -1,4 +1,4 @@
-# Documentación de Commits - Proyecto Frontend
+# Documentación de Commits / Frontend
 
 ## Introducción
 En esta sección se documentan los principales commits realizados durante el desarrollo del frontend del proyecto. 
