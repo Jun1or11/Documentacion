@@ -33,3 +33,4 @@ Adicionalmente, se configuró el sistema de **ruteo de la aplicación** y un cli
 | 03/07/26 | 2f44d75 | periodos_fiscales tab in config | Adición de pestaña para administración de períodos fiscales dentro del módulo de configuración. Se implementó calendario de períodos, validación de fechas y asociación con KPIs. |
 | 03/07/26 | 2a789fd | metas tab in config | Implementación de pestaña de gestión de metas en el módulo de configuración. Se agregó funcionalidad para crear, editar y monitorear metas operacionales con seguimiento de progreso y alertas de cumplimiento. |
 
+----------------------------------------------------------------------------------
