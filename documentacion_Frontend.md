@@ -5,9 +5,9 @@ En esta sección se documentan los principales commits realizados durante el des
 Cada commit describe los cambios realizados en el código, incluyendo configuraciones iniciales, creación de componentes, 
 implementación de páginas y modificaciones en la estructura del proyecto.
 
-## Configuración inicial del proyecto
+## Configuración inicial del frontend
 
-El primer commit corresponde a la configuración inicial del proyecto frontend. 
+El primer commit corresponde a la configuración inicial del frontend. 
 Se estableció la estructura base utilizando **Vite, React y TypeScript**, además de configuraciones necesarias 
 para el desarrollo como ESLint y los archivos de configuración del proyecto.
 
@@ -18,7 +18,7 @@ Adicionalmente, se configuró el sistema de rutas de la aplicación y un cliente
 ----------------------------------------------------------------------------------------------------------
 | Fecha | Commit | Título | Descripción |
 |------|------|------|------|
-| 03/03/26 | adae8df | Setup inicial - layout, dashboard KPI ventas, mock data | Configuración inicial del proyecto frontend, incluyendo estructura base, componentes principales, páginas iniciales, sistema de rutas y datos simulados para los KPIs de ventas. Implementación de layout responsivo y diseño del dashboard para visualización de indicadores de desempeño. |
+| 03/03/26 | adae8df | Setup inicial - layout, dashboard KPI ventas, mock data | Configuración inicial del frontend, incluyendo estructura base, componentes principales, páginas iniciales, sistema de rutas y datos simulados para los KPIs de ventas. Implementación de layout responsivo y diseño del dashboard para visualización de indicadores de desempeño. |
 | 03/03/26 | 47d8cc9 | gitignore upd | Se actualizó el archivo `.gitignore` agregando exclusiones para variables de entorno (.env) y archivos de caché generados por herramientas como ESLint y TypeScript, con el objetivo de evitar que estos archivos temporales o sensibles sean subidos al repositorio. |
 | 03/03/26 | 50ffe7d | dashboard fixes + perfil | Se realizaron mejoras en la interfaz del dashboard y se implementó la nueva página de perfil de usuario. Se ajustaron estilos y colores en el componente Layout, se mejoraron gráficos y visualización de KPIs en el Dashboard, y se creó la página `/Perfil.tsx` con información del colaborador usando datos mock. Además, se actualizó el router para permitir la navegación hacia la nueva vista de perfil. |
 | 03/03/26 | 49e56e7 | dashboard views + configuracion | Se expandió el dashboard con múltiples vistas de análisis y se implementó la sección de configuración general de la aplicación. Se agregaron componentes para visualizar diferentes perspectivas de datos de ventas y se creó la estructura base para las opciones de configuración. |
