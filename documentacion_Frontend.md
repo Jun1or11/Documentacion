@@ -31,7 +31,7 @@ Adicionalmente, se configuró el sistema de rutas de la aplicación y un cliente
 | 06/03/26 | 31b913d | users list in config |  Implementación de lista de usuarios en el módulo de configuración con opciones de gestión (Create, Read, Update). Se agregó una tabla de usuarios que muestra información como nombre, correo, rol, área y estado. También se incorporaron acciones administrativas para crear usuarios, cambiar su rol y activar o desactivar cuentas. |
 | 06/03/26 | 7dd2eb3 | admin page: colaboradores management | Desarrollo de página completa de administración para gestión de colaboradores. Se incluye funcionalidad de creación, edición, eliminación de registros de colaboradores y asignación de roles y permisos. |
 | 07/03/26 | 2f44d75 | periodos_fiscales tab in config | Adición de pestaña para administración de períodos fiscales dentro del módulo de configuración. Se implementó calendario de períodos, validación de fechas y asociación con KPIs. |
-| 07/03/26 | 2a789fd | metas tab in config | Implementación de pestaña de gestión de metas en el módulo de configuración. Se agregó funcionalidad para crear, editar y monitorear metas operacionales con seguimiento de progreso y alertas de cumplimiento. |
+| 07/03/26 | 2a789fd | metas tab in config | Implementación de pestaña de gestión de metas en el módulo de configuración. Se agregó funcionalidad para crear, editar y monitorear metas operacionales con seguimiento de progreso. |
 
 ## Resumen Final
 - **Período:** 03/03/2026 – 07/03/2026 (5 días)  
