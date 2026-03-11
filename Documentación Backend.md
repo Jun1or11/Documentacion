@@ -8,13 +8,15 @@
 -----------------------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------------------
-
+| Fecha | Commit | Cambios | Título | Descripción |
+|------|------|------|------|------|
+| 18/02/26 | c0da4ec | 14 files +421 / -0 | initial commit: estructura base + backend | Se creó la estructura base del proyecto backend.<br>Se configuró FastAPI con CORS, endpoint de salud y documentación bajo `/api`.<br>Se definieron modelos SQLAlchemy (Colaborador, ProductoEPP, InventarioReal).<br>Se implementaron endpoints para colaboradores (sync con Odoo y creación manual).<br>Se configuró PostgreSQL con pool de conexiones.<br>Se containerizó con Docker Compose, Nginx como proxy inverso y red interna `aegis_network`. |
 -----------------------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------------------
 
 ----------------------------------------------------------------------------------------------------------
-| Fecha | Commit |      Cambios       | Título | Descripción |
-|------|------|------|------|--------------|
+| Fecha | Commit | Cambios | Título | Descripción |
+|------|------|------|------|------|
 | 18/02/26 | c0da4ec | 14 files +421 / -0 | initial commit: estructura base + backend | Se creó la estructura base del proyecto backend. Se configuró FastAPI con CORS, endpoint de salud y documentación bajo el prefijo /api. Se definieron los modelos SQLAlchemy (Colaborador, ProductoEPP, InventarioReal) con creación automática de tablas al iniciar. Se implementaron dos endpoints para colaboradores: sincronización desde Odoo vía XML-RPC y creación manual. Se configuró la conexión a PostgreSQL con pool de conexiones y manejo de sesiones. Se containerizó todo con Docker Compose incluyendo Nginx como proxy inverso, PostgreSQL con secretos en archivos, y el backend FastAPI, usando una red interna aegis_network sin exponer el backend directamente. |
 | 18/02/26 | e3b11ef | 1 file +1 / -0 | demo test | Se agregó un archivo demo.md de prueba. |
 | 19/02/26 | 6dd7e68 | 1 file +1 / -1 | python version upgrade -> 3.12 | Se actualizó la imagen base de Docker del backend de `python:3.11-slim` a `python:3.12-slim.` |
