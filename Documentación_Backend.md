@@ -1,4 +1,4 @@
-# Documentación de Commits / Intranet_Frontend_
+# Documentación de Commits / Intranet_backend_
 
 ## Introducción
 -----------------------------------------------------------------------------------------------------------------
