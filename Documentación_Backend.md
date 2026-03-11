@@ -18,7 +18,7 @@
 | 18/02/26 | e3b11ef | demo test | Se agregó un archivo demo.md de prueba. |
 | 19/02/26 | 6dd7e68 | python version upgrade -> 3.12 | Se actualizó la imagen base de Docker del backend de `python:3.11-slim` a `python:3.12-slim.` |
 | 03/03/26 | f5d8083 | alembic config | Se inicializó Alembic como sistema de migraciones. Se agregaron `alembic.ini`, `env.py` y el template `script.py.mako` con la configuración estándar para una base de datos única. Se montaron los archivos de Alembic en el contenedor del backend vía `docker-compose.yml`. Se eliminó `demo.md`. |
-| 03/03/26 | 47d8cc9 | - | - |
+| 03/03/26 | 47d8cc9 | - | Se configuró Alembic para gestión de migraciones. En `env.py` se conectó la URL de base de datos desde settings (leyendo los secretos de Docker en runtime) y se enlazó Base.metadata para soporte de --autogenerate. Se generó la primera migración initial_schema como revisión base sin operaciones, estableciendo el punto de partida del historial de cambios del esquema. |
 | 03/03/26 | 47d8cc9 | - | - |
 | 03/03/26 | 47d8cc9 | - | - |
 | 03/03/26 | 47d8cc9 | - | - |
