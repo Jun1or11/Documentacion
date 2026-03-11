@@ -22,6 +22,7 @@
 | 22/02/26 | c41f5b8 | 2nd migration: remove epp inventory
  | Se eliminaron los modelos ProductoEPP e InventarioReal de `tables.py` y `base.py`. Se generó la migración Alembic 1249f8c750da que elimina las tablas productos_epp e inventario de la base de datos. |
 | 23/02/26 | 109240d | user table and migration | Se agregó el modelo User en `tables.py` con campos de autenticación (email, hashed_password) y datos básicos (nombre, area, activo, fecha_creacion). Se registró en `base.py` y se generó la migración Alembic 25988f7c9a68 que crea la tabla users con índice único en email. |
+
 | 03/03/26 | 47d8cc9 | - | - |
 | 03/03/26 | 47d8cc9 | - | - |
 | 03/03/26 | 47d8cc9 | - | - |
