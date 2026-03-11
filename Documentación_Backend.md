@@ -84,11 +84,3 @@
 - **Observación:** Los commits reflejan cambios reales y necesarios en el proyecto, se trabajó con claridad, corrigiendo o ajustando partes del proyecto.
 
 
-# Changelog
-
-## 19/02/2026
-- **6dd7e68**: Python upgrade a 3.12 en Dockerfile.
-
-## 18/02/2026
-- **c0da4ec**: Setup inicial del backend con FastAPI, PostgreSQL y Docker Compose.
-- **e3b11ef**: Archivo demo.md agregado para pruebas.
