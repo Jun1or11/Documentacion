@@ -8,9 +8,6 @@
 -----------------------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------------------
-| Fecha | Commit | Cambios | Título | Descripción |
-|------|------|------|------|------|
-| 18/02/26 | c0da4ec | 14 files +421 / -0 | initial commit: estructura base + backend | Se creó la estructura base del proyecto backend.<br>Se configuró FastAPI con CORS, endpoint de salud y documentación bajo `/api`.<br>Se definieron modelos SQLAlchemy (Colaborador, ProductoEPP, InventarioReal).<br>Se implementaron endpoints para colaboradores (sync con Odoo y creación manual).<br>Se configuró PostgreSQL con pool de conexiones.<br>Se containerizó con Docker Compose, Nginx como proxy inverso y red interna `aegis_network`. |
 -----------------------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------------------
 
