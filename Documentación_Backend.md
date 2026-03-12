@@ -5,8 +5,8 @@ En esta sección se documentan los principales commits realizados durante el des
 
 ## Configuración inicial del backend
 
-El primer commit corresponde a la configuración inicial del backend. Se estableció la estructura base utilizando FastAPI con soporte CORS, documentación automática y un endpoint de salud bajo el prefijo /api. Se definieron los primeros modelos con SQLAlchemy y se configuró la conexión a PostgreSQL con manejo de sesiones y pool de conexiones.
-También se containerizó el proyecto desde el inicio usando Docker Compose, integrando Nginx como proxy inverso y PostgreSQL con secretos en archivos, todo bajo una red interna aegis_network sin exponer el backend directamente al exterior.
+El primer commit corresponde a la configuración inicial del backend. Se estableció la estructura base utilizando FastAPI, SQLAlchemy y PostgreSQL, containerizando todo con Docker Compose e incluyendo Nginx como proxy inverso. Se definieron los primeros modelos de base de datos y endpoints para la gestión de colaboradores, junto con la configuración de CORS y el sistema de conexión a la base de datos con pool de sesiones.
+También se inicializó Alembic como sistema de migraciones, reemplazando la creación automática de tablas, y se realizaron las primeras migraciones para ajustar el esquema inicial.
 
 | Fecha | Commit | Título | Descripción |
 |------|------|------|------|
