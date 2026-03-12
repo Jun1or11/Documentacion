@@ -1,17 +1,13 @@
 # Documentación de Commits / Intranet_backend_
 
 ## Introducción
------------------------------------------------------------------------------------------------------------------
+En esta sección se documentan los principales commits realizados durante el desarrollo del backend del proyecto. Cada commit describe los cambios implementados en el servidor, incluyendo la configuración inicial, definición de modelos, migraciones de base de datos, endpoints REST y correcciones a lo largo del proceso.
 
 ## Configuración inicial del backend
 
------------------------------------------------------------------------------------------------------------------
------------------------------------------------------------------------------------------------------------------
------------------------------------------------------------------------------------------------------------------
------------------------------------------------------------------------------------------------------------------
------------------------------------------------------------------------------------------------------------------
+El primer commit corresponde a la configuración inicial del backend. Se estableció la estructura base utilizando FastAPI con soporte CORS, documentación automática y un endpoint de salud bajo el prefijo /api. Se definieron los primeros modelos con SQLAlchemy y se configuró la conexión a PostgreSQL con manejo de sesiones y pool de conexiones.
+También se containerizó el proyecto desde el inicio usando Docker Compose, integrando Nginx como proxy inverso y PostgreSQL con secretos en archivos, todo bajo una red interna aegis_network sin exponer el backend directamente al exterior.
 
-----------------------------------------------------------------------------------------------------------
 | Fecha | Commit | Título | Descripción |
 |------|------|------|------|
 | 18/02/26 | c0da4ec | initial commit: estructura base + backend | Se creó la estructura base del proyecto backend. Se configuró FastAPI con CORS, endpoint de salud y documentación bajo el prefijo /api. Se definieron los modelos SQLAlchemy (Colaborador, ProductoEPP, InventarioReal) con creación automática de tablas al iniciar. Se implementaron dos endpoints para colaboradores: sincronización desde Odoo vía XML-RPC y creación manual. Se configuró la conexión a PostgreSQL con pool de conexiones y manejo de sesiones. Se containerizó todo con Docker Compose incluyendo Nginx como proxy inverso, PostgreSQL con secretos en archivos, y el backend FastAPI, usando una red interna aegis_network sin exponer el backend directamente. |
@@ -63,6 +59,6 @@
 ## Resumen Final
 - **Período:** 18/02/2026 – 12/03/2026 (- días)  
 - **Total de Commits:** 44 (incluye setup inicial y mejoras)  
-- **Observación:** L-----.
+- **Observación:** *El backend presenta una base funcional con autenticación, gestión de colaboradores, áreas y KPIs implementados. El desarrollo fue iterativo con varias correcciones a lo largo del período*.
 
 
