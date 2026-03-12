@@ -31,6 +31,18 @@
 | 25/02/26 | 860b6c3 | colaboradores first endpoints | Se implementó el CRUD completo de colaboradores: schemas Pydantic, operaciones en `crud/colaborador.py` (crear, editar, baja y cambio de área con historial) y endpoints REST protegidos por rol. Además, se extrajeron get_current_user y get_current_admin a `dependencies.py`. |
 | 04/03/26 | 38489d3 | auth loads user + colaborador info | Se actualizó `/auth/me` para cargar el colaborador y su área con joinedload y devolver los datos del perfil (nombres, apellidos, cargo, area, celular) directamente en UserResponse. |
 | 04/03/26 | 8137f10 | fix: auth import | Se corrigió el import de User, apuntando a app.models.tables en lugar de app.models. |
+| 05/03/26 | ------- | user auth + front cors | Se agregó endpoint `/auth/crear-usuario` (solo admin) que genera email corporativo y crea el usuario con contraseña temporal. Se agregaron los schemas CrearUsuarioRequest y CrearUsuarioResponse. Se ampliaron los orígenes CORS para incluir Vite dev server y variantes de la IP de Tailscale. |
+| 05/03/26 | ------- | fix: auth usuario as default | Se cambió el rol por defecto al crear usuarios de *"vendedor"* a *"usuario".* |
+| 03/03/26 | ------- | - | - |
+| 03/03/26 | ------- | - | - |
+| 03/03/26 | ------- | - | - |
+| 03/03/26 | ------- | - | - |
+| 03/03/26 | ------- | - | - |
+| 03/03/26 | ------- | - | - |
+| 03/03/26 | ------- | - | - |
+| 03/03/26 | ------- | - | - |
+| 03/03/26 | ------- | - | - |
+| 03/03/26 | ------- | - | - |
 | 03/03/26 | ------- | - | - |
 | 03/03/26 | ------- | - | - |
 | 03/03/26 | ------- | - | - |
