@@ -23,14 +23,14 @@
 | 23/02/26 | 109240d | user table and migration | Se agregó el modelo User en `tables.py` con campos de autenticación (email, hashed_password) y datos básicos (nombre, area, activo, fecha_creacion). Se registró en `base.py` y se generó la migración Alembic 25988f7c9a68 que crea la tabla users con índice único en email. |
 | 23/02/26 | 04e308b | jwt login config | Se implementó el sistema de autenticación JWT. Se agregó `security.py` para hashing con bcrypt y generación/validación de tokens. Se creó el endpoint `/auth/login` para autenticación y `/auth/me` protegido con get_current_user. También se añadieron los schemas de autenticación y dependencias (python-jose, passlib[bcrypt], email-validator). |
 | 23/02/26 | d020c86 | fix bcrypt version | Se fijaron las versiones de passlib[bcrypt]==1.7.4 y bcrypt==4.0.1 para resolver incompatibilidad entre ambas librerías. |
-| 24/02/26 | ------- | utils: generate emails | - |
-| 03/03/26 | ------- | areas & colaboradores tables | - |
-| 03/03/26 | ------- | - | - |
-| 03/03/26 | ------- | - | - |
-| 03/03/26 | ------- | - | - |
-| 03/03/26 | ------- | - | - |
-| 03/03/26 | ------- | - | - |
-| 03/03/26 | ------- | - | - |
+| 24/02/26 | 38e8368 | utils: generate emails | Se agregó el archivo `utils.py` con funciones utilitarias para normalizar textos y generar correos corporativos automáticamente a partir del nombre y apellidos del colaborador, usando el dominio de la empresa. |
+| 25/02/26 | 770485f | areas & colaboradores tables | Se reestructuró el modelo de datos: se expandió Colaborador con campos laborales completos, se agregaron tablas Area, ColaboradorAreaHistorial y PeriodoMesFiscal, y se actualizó User con rol, colaborador_id y debe_cambiar_password. |
+| 25/02/26 | 1951adf | areas & colaboradores trables migration | Se generó la migración Alembic `b91515838bb8` correspondiente al commit anterior: crea las tablas areas, periodos_mes_fiscal, usuarios_odoo y colaborador_area_historial, reestructura colaboradores y actualiza users con los nuevos campos. |
+| 25/02/26 | 61eca2f | fix: user.area->user.rol | Se corrigió el payload del JWT, reemplazando el campo area por rol al generar el token en `/auth/login`. |
+| 25/02/26 | d375a6f | fix: auth user fields | Se actualizó UserResponse reemplazando area y nombre por rol y debe_cambiar_password, y agregando colaborador_id como campo opcional. |
+| 25/02/26 | 860b6c3 | colaboradores first endpoints | Se implementó el CRUD completo de colaboradores: schemas Pydantic, operaciones en `crud/colaborador.py` (crear, editar, baja y cambio de área con historial) y endpoints REST protegidos por rol. Además, se extrajeron get_current_user y get_current_admin a `dependencies.py`. |
+| 04/03/26 | 38489d3 | auth loads user + colaborador info | Se actualizó `/auth/me` para cargar el colaborador y su área con joinedload y devolver los datos del perfil (nombres, apellidos, cargo, area, celular) directamente en UserResponse. |
+| 04/03/26 | 8137f10 | fix: auth import | Se corrigió el import de User, apuntando a app.models.tables en lugar de app.models. |
 | 03/03/26 | ------- | - | - |
 | 03/03/26 | ------- | - | - |
 | 03/03/26 | ------- | - | - |
