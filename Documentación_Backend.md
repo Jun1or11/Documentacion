@@ -52,8 +52,8 @@ También se containerizó el proyecto desde el inicio usando Docker Compose, int
 | 09/03/26 | 687117e | fix: colaborador_id missing + dashboard endpoint | Se agregó colaborador_id faltante en la respuesta de `/auth/me`. Se crearon los endpoints **GET /kpis/dashboard** y **GET /kpis/dashboard/equipo** que devuelven KPIs de la semana actual, acumulado trimestral y metas para un colaborador o el equipo completo de un área |
 | 11/03/26 | 93a18a6 | fix: kpi gastos sumar->promediar | Se corrigió el cálculo de gastos en los endpoints de dashboard, cambiando de **sum** a **avg** tanto para la vista personal como la de equipo. |
 | 11/03/26 | ab079c0 | fix: numeric_types:int->dec | Se generó la migración Alembic `bfb4670cc780` que cambia campos de **INTEGER** a **Numeric(12,2)** y agrega tipo_agregacion en **kpi_definiciones**. También se actualizaron modelos y schemas de **int** a **Decimal**. |
-| 12/03/26 | a135f2a | fix: metas_equipo tables & enpoints | --- |
-| 12/03/26 | 453b719 | add nombre_colaborador to gastos | --- |
+| 12/03/26 | a135f2a | fix: metas_equipo tables & enpoints | Se agregó get_metas_equipo en `crud/kpi_meta.py` que agrega metas por tipo_agregacion. Se actualizó dashboard/equipo para usarla, incluir metas_semanales y metas_trimestrales en la respuesta, y calcular estas últimas con el total real de semanas del trimestre. |
+| 12/03/26 | 453b719 | add nombre_colaborador to gastos | Se agregó **nombre_colaborador** a los registros de gastos y se actualizó el schema **GastoResponse** para incluirlo. |
 
 
 ## Resumen Final
