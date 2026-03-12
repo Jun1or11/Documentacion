@@ -56,16 +56,13 @@
 | 09/03/26 | 687117e | fix: colaborador_id missing + dashboard endpoint | Se agregó colaborador_id faltante en la respuesta de `/auth/me`. Se crearon los endpoints **GET /kpis/dashboard** y **GET /kpis/dashboard/equipo** que devuelven KPIs de la semana actual, acumulado trimestral y metas para un colaborador o el equipo completo de un área |
 | 11/03/26 | 93a18a6 | fix: kpi gastos sumar->promediar | Se corrigió el cálculo de gastos en los endpoints de dashboard, cambiando de **sum** a **avg** tanto para la vista personal como la de equipo. |
 | 11/03/26 | ab079c0 | fix: numeric_types:int->dec | Se generó la migración Alembic `bfb4670cc780` que cambia campos de **INTEGER** a **Numeric(12,2)** y agrega tipo_agregacion en **kpi_definiciones**. También se actualizaron modelos y schemas de **int** a **Decimal**. |
-| 12/03/26 | ------- | --- | --- |
+| 12/03/26 | a135f2a | fix: metas_equipo tables & enpoints | --- |
+| 12/03/26 | 453b719 | add nombre_colaborador to gastos | --- |
 
-
-| 03/03/26 | ------- | --- | --- |
-| 03/03/26 | ------- | --- | --- |
-| 03/03/26 | ------- | --- | --- |
 
 ## Resumen Final
-- **Período:** 03/03/2026 – 10/03/2026 (- días)  
-- **Total de Commits:** 15 (incluye setup inicial y mejoras)  
-- **Observación:** Los commits reflejan cambios reales y necesarios en el proyecto, se trabajó con claridad, corrigiendo o ajustando partes del proyecto.
+- **Período:** 18/02/2026 – 12/03/2026 (- días)  
+- **Total de Commits:** 44 (incluye setup inicial y mejoras)  
+- **Observación:** L-----.
 
 
