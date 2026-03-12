@@ -31,26 +31,35 @@
 | 25/02/26 | 860b6c3 | colaboradores first endpoints | Se implementó el CRUD completo de colaboradores: schemas Pydantic, operaciones en `crud/colaborador.py` (crear, editar, baja y cambio de área con historial) y endpoints REST protegidos por rol. Además, se extrajeron get_current_user y get_current_admin a `dependencies.py`. |
 | 04/03/26 | 38489d3 | auth loads user + colaborador info | Se actualizó `/auth/me` para cargar el colaborador y su área con joinedload y devolver los datos del perfil (nombres, apellidos, cargo, area, celular) directamente en UserResponse. |
 | 04/03/26 | 8137f10 | fix: auth import | Se corrigió el import de User, apuntando a app.models.tables en lugar de app.models. |
-| 05/03/26 | ------- | user auth + front cors | Se agregó endpoint `/auth/crear-usuario` (solo admin) que genera email corporativo y crea el usuario con contraseña temporal. Se agregaron los schemas CrearUsuarioRequest y CrearUsuarioResponse. Se ampliaron los orígenes CORS para incluir Vite dev server y variantes de la IP de Tailscale. |
-| 05/03/26 | ------- | fix: auth usuario as default | Se cambió el rol por defecto al crear usuarios de *"vendedor"* a *"usuario".* |
-| 03/03/26 | ------- | - | - |
-| 03/03/26 | ------- | - | - |
-| 03/03/26 | ------- | - | - |
-| 03/03/26 | ------- | - | - |
-| 03/03/26 | ------- | - | - |
-| 03/03/26 | ------- | - | - |
-| 03/03/26 | ------- | - | - |
-| 03/03/26 | ------- | - | - |
-| 03/03/26 | ------- | - | - |
-| 03/03/26 | ------- | - | - |
-| 03/03/26 | ------- | - | - |
-| 03/03/26 | ------- | - | - |
-| 03/03/26 | ------- | - | - |
-| 03/03/26 | ------- | - | - |
-| 03/03/26 | ------- | - | - |
-| 03/03/26 | ------- | - | - |
-| 03/03/26 | ------- | - | - |
-| 03/03/26 | ------- | - | - |
+| 05/03/26 | 76667c3 | user auth + front cors | Se agregó endpoint `/auth/crear-usuario` (solo admin) que genera email corporativo y crea el usuario con contraseña temporal. Se agregaron los schemas CrearUsuarioRequest y CrearUsuarioResponse. Se ampliaron los orígenes CORS para incluir Vite dev server y variantes de la IP de Tailscale. |
+| 05/03/26 | ebaab20 | fix: auth usuario as default | Se cambió el rol por defecto al crear usuarios de **"vendedor"** a **"usuario".** |
+| 06/03/26 | 9fc31c0 | add fecha_ingreso & tipo_vinculo | Se agregaron **fecha_ingreso** y **tipo_vinculo** al schema UserResponse y a la respuesta del endpoint `/auth/me.` |
+| 06/03/26 | 66c0525 | auth> add email_personal | Se agregó **email_personal** al schema UserResponse y a la respuesta del endpoint `/auth/me`. |
+| 06/03/26 | 717593a | fix: email_personal -> colaborador.email | Se corrigió el **campo email_personal** para leer **colaborador.email** en lugar de **colaborador.email_personal** |
+| 06/03/26 | 3c5f9d8 | security docs gitignore | Se agregó **SECURITY_AUDIT.md** al `.gitignore` para evitar subir documentación de auditoría de seguridad al repositorio. |
+| 06/03/26 | f190c21 | kpi_ventas tables | Se agregaron 6 modelos para el registro detallado de KPIs de ventas: **RegistroLlamada**, **RegistroVisita**, **RegistroClienteNuevo**, **RegistroTiempoCotizacion**, **RegistroGasto** y **RegistroFacturacion**, todos vinculados a Colaborador. |
+| 06/03/26 | 6b4270c | kpi_ventas schemas | Se creó el archivo `kpi.py` con los schemas Pydantic para los KPIs de ventas, incluyendo modelos para llamadas, visitas, clientes nuevos, tiempo de cotización, gastos, facturación y un resumen de KPIs. |
+| 06/03/26 | 2fc032e | crud: kpi_ventas | Se creó `crud/kpi.py` con operaciones de crear, eliminar y listar por período para los 6 KPIs, más get_resumen_periodo que agrega conteos, sumas y promedio de tiempo de cotización en una sola consulta. |
+| 06/03/26 | 2c01c21 | kpi_ventas endpoints | Se creó `endpoints/kpis.py` con rutas GET, POST y DELETE para los KPIs y /resumen para el agregado del período. Los endpoints obtienen colaborador_id desde el usuario autenticado y se registró el router con el prefijo `/kpis`. |
+| 06/03/26 | 7865b92 | migration: kpi_ventas tables | Se generó la migración Alembic `f685fe587b3e` que crea las 6 tablas de registro de KPIs de ventas. |
+| 06/03/26 | c0da093 | crud: area | Se creó `schemas/area.py` con los schemas **AreaCreate**, **AreaUpdate** y **AreaResponse**, este último incluyendo total_colaboradores como campo calculado. |
+| 06/03/26 | fc84a00 | crud & schema: area | Se creó `crud/area.py` con operaciones para listar áreas (con conteo de colaboradores activos), crear y editar áreas. |
+| 06/03/26 | 57425ba | areas endpoints | Se creó `endpoints/areas.py` con rutas GET, POST y PATCH para gestión de áreas, y se registró el router bajo el prefijo /areas. |
+| 06/03/26 | ------- | endpoint: users | - |
+| 06/03/26 | ------- | add tiene_usuario->colaborador | - |
+| 06/03/26 | ------- | endpoint: historial_area_colaborador | - |
+| 06/03/26 | ------- | kpi tables & migration | - |
+| 06/03/26 | ------- | endpoint + crud + schema: kpi_meta | - |
+| 06/03/26 | ------- | periodo_fiscal->semana_fiscal & migration | - |
+| 03/03/26 | ------- | --- | --- |
+| 03/03/26 | ------- | --- | --- |
+| 03/03/26 | ------- | --- | --- |
+| 03/03/26 | ------- | --- | --- |
+| 03/03/26 | ------- | --- | --- |
+| 03/03/26 | ------- | --- | --- |
+| 03/03/26 | ------- | --- | --- |
+| 03/03/26 | ------- | --- | --- |
+| 03/03/26 | ------- | --- | --- |
 
 ## Resumen Final
 - **Período:** 03/03/2026 – 10/03/2026 (- días)  
