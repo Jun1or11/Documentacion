@@ -45,18 +45,20 @@
 | 06/03/26 | c0da093 | crud: area | Se creó `schemas/area.py` con los schemas **AreaCreate**, **AreaUpdate** y **AreaResponse**, este último incluyendo total_colaboradores como campo calculado. |
 | 06/03/26 | fc84a00 | crud & schema: area | Se creó `crud/area.py` con operaciones para listar áreas (con conteo de colaboradores activos), crear y editar áreas. |
 | 06/03/26 | 57425ba | areas endpoints | Se creó `endpoints/areas.py` con rutas GET, POST y PATCH para gestión de áreas, y se registró el router bajo el prefijo /areas. |
-| 06/03/26 | ------- | endpoint: users | - |
-| 06/03/26 | ------- | add tiene_usuario->colaborador | - |
-| 06/03/26 | ------- | endpoint: historial_area_colaborador | - |
-| 06/03/26 | ------- | kpi tables & migration | - |
-| 06/03/26 | ------- | endpoint + crud + schema: kpi_meta | - |
-| 06/03/26 | ------- | periodo_fiscal->semana_fiscal & migration | - |
-| 03/03/26 | ------- | --- | --- |
-| 03/03/26 | ------- | --- | --- |
-| 03/03/26 | ------- | --- | --- |
-| 03/03/26 | ------- | --- | --- |
-| 03/03/26 | ------- | --- | --- |
-| 03/03/26 | ------- | --- | --- |
+| 06/03/26 | 2b767f7 | endpoint: users | Se agregaron los endpoints **GET /auth/usuarios** y **PATCH /auth/usuarios/{user_id}** (solo admin) para listar y actualizar rol o estado de usuarios. Se añadieron los schemas **UsuarioListResponse** y **UsuarioUpdateRequest**. |
+| 06/03/26 | d819bf3 | add tiene_usuario->colaborador | Se agregó el campo tiene_usuario a ColaboradorResponse y se añadió el helper _set_tiene_usuario en `crud/colaborador.py` que lo calcula consultando la tabla users |
+| 06/03/26 | b9ba57d | endpoint: historial_area_colaborador | Se agregó el endpoint **GET /{colaborador_id}/historial-areas** (solo admin) que retorna el historial de cambios de área de un colaborador con nombre, color y fechas. |
+| 06/03/26 | 9913996 | kpi tables & migration | Se generó la migración Alembic `0c6959b25899` que crea las tablas kpi_definiciones y kpi_metas. Se agregaron los modelos KPIDefinicion y KPIMeta a `tables.py`. |
+| 06/03/26 | 771ce69 | endpoint + crud + schema: kpi_meta | Se crearon `schemas/kpi_meta.py`, `crud/kpi_meta.py` y `endpoints/kpi_metas.py` para gestionar definiciones y metas de KPI. Se añadió upsert_meta para crear o actualizar metas por período y se registró el router kpi_metas con el prefijo /kpi |
+| 06/03/26 | d9452a9 | periodo_fiscal->semana_fiscal & migration | Se generaron cuatro migraciones de Alembic (`7063b1c213a0`, `a312eb5e4a11`, `48fdbb437a80` y `333afcb2a45f`) para reemplazar la tabla de períodos fiscales. Como parte del cambio, se sustituyó el modelo PeriodoMesFiscal por SemanaFiscal en `tables.py` y `base.py`, pasando de períodos mensuales a semanas fiscales por trimestre. |
+| 07/03/26 | 63d295c | fix: semanas_fiscales endpoints | Se crearon `schemas/semana_fiscal.py`, `crud/semana_fiscal.py` y `endpoints/semanas_fiscales.py` con endpoints para consultar la semana actual, listar trimestres y semanas, generar un trimestre a partir de tres meses y eliminarlo. Además, se registró el router bajo el prefijo /semanas-fiscales. |
+| 07/03/26 | 4cf18cf | fix: kpi_metas format & endpoints & migration | Se generó la migración Alembic `fe8b13b82f47` para renombrar el campo año a anio en el modelo KPIMeta. También se actualizó este cambio en schemas y crud. Además, se agregó el endpoint **GET /metas/area/{area_id}** que devuelve los colaboradores activos del área con sus metas. |
+| 09/03/26 | 687117e | fix: colaborador_id missing + dashboard endpoint | Se agregó colaborador_id faltante en la respuesta de `/auth/me`. Se crearon los endpoints **GET /kpis/dashboard** y **GET /kpis/dashboard/equipo** que devuelven KPIs de la semana actual, acumulado trimestral y metas para un colaborador o el equipo completo de un área |
+| 11/03/26 | 93a18a6 | fix: kpi gastos sumar->promediar | Se corrigió el cálculo de gastos en los endpoints de dashboard, cambiando de **sum** a **avg** tanto para la vista personal como la de equipo. |
+| 11/03/26 | ab079c0 | fix: numeric_types:int->dec | Se generó la migración Alembic `bfb4670cc780` que cambia campos de **INTEGER** a **Numeric(12,2)** y agrega tipo_agregacion en **kpi_definiciones**. También se actualizaron modelos y schemas de **int** a **Decimal**. |
+| 12/03/26 | ------- | --- | --- |
+
+
 | 03/03/26 | ------- | --- | --- |
 | 03/03/26 | ------- | --- | --- |
 | 03/03/26 | ------- | --- | --- |
