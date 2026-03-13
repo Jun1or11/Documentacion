@@ -54,7 +54,8 @@ También se inicializó Alembic como sistema de migraciones, reemplazando la cre
 | 11/03/26 | ab079c0 | fix: numeric_types:int->dec | Se generó la migración Alembic `bfb4670cc780` que cambia campos de **INTEGER** a **Numeric(12,2)** y agrega tipo_agregacion en **kpi_definiciones**. También se actualizaron modelos y schemas de **int** a **Decimal**. |
 | 12/03/26 | a135f2a | fix: metas_equipo tables & enpoints | Se agregó get_metas_equipo en `crud/kpi_meta.py` que agrega metas por tipo_agregacion. Se actualizó dashboard/equipo para usarla, incluir metas_semanales y metas_trimestrales en la respuesta, y calcular estas últimas con el total real de semanas del trimestre. |
 | 12/03/26 | 453b719 | add nombre_colaborador to gastos | Se agregó **nombre_colaborador** a los registros de gastos y se actualizó el schema **GastoResponse** para incluirlo. |
-
+| 12/03/26 | 901cf2a | delete prev verions->initial migration | Se eliminaron todas las migraciones anteriores de Alembic y se reemplazaron por una única migración inicial `724c4c15775f_initial.py` como base del esquema completo actual. |
+| 13/03/26 | 2d5e0d1 | add nombre_colaborador to gastos | Se reemplazó el contenedor de prueba httpd:alpine por nginx:alpine para servir el build del frontend, montando dist/ y un `nginx.conf` con fallback a index.html para React Router. |
 
 ## Resumen Final
 - **Período:** 18/02/2026 – 12/03/2026 (- días)  
