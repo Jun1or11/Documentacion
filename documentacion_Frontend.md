@@ -32,13 +32,13 @@ Adicionalmente, se configuró el sistema de rutas de la aplicación y un cliente
 | 06/03/26 | 7dd2eb3 | admin page: colaboradores management | Desarrollo de la página de administración de colaboradores con creación, edición, eliminación, asignación de roles y permisos, historial y estadísticas. Se agregó la ruta `/admin` e importación de la página Admin en `index.tsx.` |
 | 07/03/26 | 2f44d75 | periodos_fiscales tab in config | Adición de pestaña para administración de períodos fiscales en el módulo de configuración. Se implementó generación y edición de trimestres, cálculo automático de semanas por mes, validación de fechas y visualización de la semana actual. |
 | 07/03/26 | 2a789fd | metas tab in config | Conexión del tab Metas con la API real. Se reemplazaron los datos mock por llamadas a /kpi/metas/area/1, se agregó selector de año y trimestre, edición de metas por colaborador con guardado a la API vía POST /kpi/metas y manejo de estado de carga. |
-| 10/03/26 | 2a789fd | load kpi data -> dashboard | Conexión del dashboard con la API real. Se reemplazaron los datos mock por llamadas a /kpis/dashboard y /kpis/dashboard/equipo, se agregó carga dinámica de semanas fiscales y colaboradores, skeleton loader durante la carga, y se mejoró el selector de período con navegación por año, trimestre y semana real. |
-| 12/03/26 | 2a789fd | fix: metas_equipo views |----|
-| 12/03/26 | 2a789fd | fix: configuracion permissions |----|
-| 12/03/26 | 2a789fd | hide not working functions & imprvs |----|
-| 12/03/26 | 2a789fd | fix: registros dates & gastos equipo view |----|
-| 12/03/26 | 2a789fd | registros: date fixes |----|
-| 12/03/26 | 2a789fd | unusedlocals->false |----|
+| 10/03/26 | 76be626 | load kpi data -> dashboard | Conexión del dashboard con la API real. Se reemplazaron los datos mock por llamadas a /kpis/dashboard y /kpis/dashboard/equipo, se agregó carga dinámica de semanas fiscales y colaboradores, skeleton loader durante la carga, y se mejoró el selector de período con navegación por año, trimestre y semana real. |
+| 12/03/26 | b3aec2e | fix: metas_equipo views | Se corrigió la visualización de metas en la vista de equipo del dashboard. Se agregaron metas_semanales y metas_trimestrales a DashboardEquipo, se inicializa el período con la fecha actual y se detecta automáticamente la semana actual según el rango de fechas del endpoint. |
+| 12/03/26 | bb07a76 | fix: configuracion permissions | Se reemplazaron datos mock por llamadas a API, se integró useUserStore para roles y permisos, se agregó carga dinámica de colaboradores y semanas, y se refactorizó BloqueKpis. |
+| 12/03/26 | 41e6528 | hide not working functions & imprvs | Se ocultaron funciones no implementadas en `Layout.tsx` y `Perfil.tsx` (buscador, dark mode, notificaciones y acciones de perfil) comentando temporalmente sus componentes. También se realizaron pequeños ajustes en la interfaz. |
+| 12/03/26 | 3ef75fb | fix: registros dates & gastos equipo view | Se agregó nombre_colaborador en gastos y detección automática de la semana fiscal actual. Se ajustaron fechas y visualización de inputs en modo oscuro. |
+| 12/03/26 | f775d2e | registros: date fixes | Se agregó fmtFecha para formatear fechas a DD/MM/YYYY, se añadió el tipo de gasto visita, se ajustó el idioma a es-PE y se mejoró la visualización de inputs de fecha. |
+| 12/03/26 | 0152730 | unusedlocals->false | Se desactivó la regla noUnusedLocals en `tsconfig.app.json` para permitir variables locales sin usar. |
 ## Resumen Final
 - **Período:** 03/03/2026 – 10/03/2026 (- días)  
 - **Total de Commits:** 15 (incluye setup inicial y mejoras)  
