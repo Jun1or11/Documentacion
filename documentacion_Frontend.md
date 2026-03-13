@@ -39,6 +39,10 @@ Adicionalmente, se configuró el sistema de rutas de la aplicación y un cliente
 | 12/03/26 | 3ef75fb | fix: registros dates & gastos equipo view | Se agregó nombre_colaborador en gastos y detección automática de la semana fiscal actual. Se ajustaron fechas y visualización de inputs en modo oscuro. |
 | 12/03/26 | f775d2e | registros: date fixes | Se agregó fmtFecha para formatear fechas a DD/MM/YYYY, se añadió el tipo de gasto visita, se ajustó el idioma a es-PE y se mejoró la visualización de inputs de fecha. |
 | 12/03/26 | 0152730 | unusedlocals->false | Se desactivó la regla noUnusedLocals en `tsconfig.app.json` para permitir variables locales sin usar. |
+| 13/03/26 | 7460e0a | clean unused variables & fix dates | Se eliminaron constantes mock, se comentó tab de notificaciones y su componente, se simplificó inicialización de meses. |
+
+
+
 ## Resumen Final
 - **Período:** 03/03/2026 – 10/03/2026 (- días)  
 - **Total de Commits:** 15 (incluye setup inicial y mejoras)  
