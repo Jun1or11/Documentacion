@@ -33,6 +33,12 @@ Adicionalmente, se configuró el sistema de rutas de la aplicación y un cliente
 | 07/03/26 | 2f44d75 | periodos_fiscales tab in config | Adición de pestaña para administración de períodos fiscales en el módulo de configuración. Se implementó generación y edición de trimestres, cálculo automático de semanas por mes, validación de fechas y visualización de la semana actual. |
 | 07/03/26 | 2a789fd | metas tab in config | Conexión del tab Metas con la API real. Se reemplazaron los datos mock por llamadas a /kpi/metas/area/1, se agregó selector de año y trimestre, edición de metas por colaborador con guardado a la API vía POST /kpi/metas y manejo de estado de carga. |
 | 10/03/26 | 2a789fd | load kpi data -> dashboard | Conexión del dashboard con la API real. Se reemplazaron los datos mock por llamadas a /kpis/dashboard y /kpis/dashboard/equipo, se agregó carga dinámica de semanas fiscales y colaboradores, skeleton loader durante la carga, y se mejoró el selector de período con navegación por año, trimestre y semana real. |
+| 12/03/26 | 2a789fd | fix: metas_equipo views |----|
+| 12/03/26 | 2a789fd | fix: configuracion permissions |----|
+| 12/03/26 | 2a789fd | hide not working functions & imprvs |----|
+| 12/03/26 | 2a789fd | fix: registros dates & gastos equipo view |----|
+| 12/03/26 | 2a789fd | registros: date fixes |----|
+| 12/03/26 | 2a789fd | unusedlocals->false |----|
 ## Resumen Final
 - **Período:** 03/03/2026 – 10/03/2026 (- días)  
 - **Total de Commits:** 15 (incluye setup inicial y mejoras)  
