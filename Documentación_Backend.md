@@ -60,8 +60,8 @@ También se inicializó Alembic como sistema de migraciones, reemplazando la cre
 | 16/03/26 | 609a750 | Prueba de conexion al sheets por API de Google Sheets | Se crearon `endpoints/sheets.py` y `services/sheets_service.py` con la conexión a Google Sheets vía gspread y el endpoint GET /sheets/preview que retorna los primeros 10 registros de la hoja **Cuentas Por Cobrar**. Se registró el router bajo el prefijo /sheets en `api.py`. |
 
 ## Resumen Final
-- **Período:** 18/02/2026 – 13/03/2026 (27 días)  
-- **Total de Commits:** 46 (incluye setup inicial y mejoras)  
+- **Período:** 18/02/2026 – 16/03/2026 (30 días)  
+- **Total de Commits:** 48 (incluye setup inicial y mejoras)  
 - **Observación:** *El backend presenta una base funcional con autenticación, gestión de colaboradores, áreas y KPIs implementados. El desarrollo fue iterativo con varias correcciones a lo largo del período*.
 
 
