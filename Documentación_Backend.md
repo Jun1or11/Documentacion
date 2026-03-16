@@ -58,8 +58,8 @@ También se inicializó Alembic como sistema de migraciones, reemplazando la cre
 | 13/03/26 | 2d5e0d1 | first deploy config | Se configuró el despliegue inicial del frontend con Nginx en Docker y agregando un `nginx.conf` con fallback a `index.html` para React Router. |
 
 ## Resumen Final
-- **Período:** 18/02/2026 – 12/03/2026 (- días)  
-- **Total de Commits:** 44 (incluye setup inicial y mejoras)  
+- **Período:** 18/02/2026 – 13/03/2026 (27 días)  
+- **Total de Commits:** 46 (incluye setup inicial y mejoras)  
 - **Observación:** *El backend presenta una base funcional con autenticación, gestión de colaboradores, áreas y KPIs implementados. El desarrollo fue iterativo con varias correcciones a lo largo del período*.
 
 
