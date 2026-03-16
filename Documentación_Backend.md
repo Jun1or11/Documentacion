@@ -56,6 +56,8 @@ También se inicializó Alembic como sistema de migraciones, reemplazando la cre
 | 12/03/26 | 453b719 | add nombre_colaborador to gastos | Se agregó **nombre_colaborador** a los registros de gastos y se actualizó el schema **GastoResponse** para incluirlo. |
 | 12/03/26 | 901cf2a | delete prev verions->initial migration | Se eliminaron todas las migraciones anteriores de Alembic y se reemplazaron por una única migración inicial `724c4c15775f_initial.py` como base del esquema completo actual. |
 | 13/03/26 | 2d5e0d1 | first deploy config | Se configuró el despliegue inicial del frontend con Nginx en Docker y agregando un `nginx.conf` con fallback a `index.html` para React Router. |
+| 16/03/26 | 5e97bcc | Add configuracion de API de Google para conexion con sheets | Se agregaron las dependencias gspread y google-auth para integración con Google Sheets, y se configuró el secret google_keys en Docker Compose para montar las credenciales de la API de Google. |
+| 16/03/26 | 609a750 | Prueba de conexion al sheets por API de Google Sheets | Se crearon `endpoints/sheets.py` y `services/sheets_service.py` con la conexión a Google Sheets vía gspread y el endpoint GET /sheets/preview que retorna los primeros 10 registros de la hoja **Cuentas Por Cobrar**. Se registró el router bajo el prefijo /sheets en `api.py`. |
 
 ## Resumen Final
 - **Período:** 18/02/2026 – 13/03/2026 (27 días)  
