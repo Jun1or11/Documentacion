@@ -44,7 +44,7 @@ Adicionalmente, se configuró el sistema de rutas de la aplicación y un cliente
 
 
 ## Resumen Final
-- **Período:** 03/03/2026 – 10/03/2026 (- días)  
-- **Total de Commits:** 15 (incluye setup inicial y mejoras)  
+- **Período:** 03/03/2026 – 13/03/2026 (10 días)  
+- **Total de Commits:** 22 (incluye setup inicial y mejoras)  
 - **Observación:** Los commits reflejan cambios reales y necesarios en el proyecto, se trabajó con claridad, corrigiendo o ajustando partes del proyecto.
 
