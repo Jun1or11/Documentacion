@@ -62,3 +62,56 @@ indusegur-intranet-main/
                 ├── api.py       # Registro central de todos los routers
                 └── endpoints/   # Un archivo por módulo funcional
 ```
+---
+
+## 4. Arquitectura del backend
+
+El proyecto sigue una arquitectura en capas bien definida:
+
+```
+HTTP Request
+    │
+    ▼
+[Endpoint] → valida schema (Pydantic) → verifica jwt (dependencies.py)
+    │
+    ▼
+[CRUD] → consulta / muta la base de datos vía SQLAlchemy ORM
+    │
+    ▼
+[PostgreSQL] ← schema gestionado por Alembic
+```
+
+- **Versionado**: todas las rutas viven bajo `/api/v1/`. El prefijo `/api` lo inyecta Nginx como `root_path` de FastAPI.
+- **Autenticación**: Bearer Token (JWT HS256). Dos guards: `get_current_user` (cualquier usuario activo) y `get_current_admin` (solo rol `admin`).
+- **Configuración**: `pydantic-settings` lee las variables desde Docker Secrets montados en `/run/secrets/`. Sin archivos `.env` en producción.
+- **Migraciones**: Alembic gestiona el esquema. Las tablas no se crean con `create_all` en runtime.
+
+---
+
+## 6. Flujo de una petición autenticada
+
+```
+Cliente (React)
+    │
+    │  HTTP  Authorization: Bearer <jwt>
+    ▼
+Nginx (proxy)  →  añade prefijo /api  →  redirige al contenedor backend
+    │
+    ▼
+FastAPI (uvicorn:8000)
+    │
+    ├─ CORSMiddleware: valida origen
+    ├─ Router v1: determina handler
+    ├─ dependencies.py: decodifica JWT → obtiene User de BD
+    ├─ Pydantic schema: valida payload del request
+    │
+    ▼
+Función CRUD  →  SQLAlchemy  →  PostgreSQL
+    │
+    ▼
+Response JSON serializado por Pydantic
+```
+
+---
+
+## 7. Instalación y ejecución
