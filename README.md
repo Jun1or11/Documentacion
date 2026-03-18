@@ -120,3 +120,33 @@ Response JSON serializado por Pydantic
 
 
 ### En local (sin Docker)
+```bash
+# 1. Ir al proyecto
+cd indusegur-intranet-main
+
+# 2. Entrar al backend
+cd backend
+
+# 3. Crear entorno virtual
+python -m venv venv
+
+# 4. Activar entorno virtual (Windows)
+venv\Scripts\activate
+
+# 5. Instalar dependencias
+pip install -r requirements.txt
+
+# 6. Configurar variables de entorno (PowerShell)
+$env:DB_USER="postgres"
+$env:DB_PASSWORD="123456"
+$env:DB_HOST="localhost"
+$env:DB_PORT="5432"
+$env:DB_NAME="test_db"
+
+$env:ODOO_URL="http://localhost"
+$env:ODOO_DB="test"
+$env:ODOO_USER="admin"
+$env:ODOO_PASSWORD="admin"
+
+# 7. Ejecutar servidor
+uvicorn app.main:app --reload
