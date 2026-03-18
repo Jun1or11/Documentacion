@@ -116,7 +116,13 @@ Response JSON serializado por Pydantic
 ## 6. Instalación y ejecución
 ### Con Docker
 
-
+-
+-
+-
+-
+-
+-
+-
 
 
 ### En local (sin Docker)
