@@ -154,5 +154,6 @@ uvicorn app.main:app --reload
 
 Probar en el navegador:
 API base: http://127.0.0.1:8000
+
 Documentación (Swagger): http://127.0.0.1:8000/docs
 
