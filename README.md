@@ -1,6 +1,5 @@
 #  Indusegur Aegis — Backend API
 
-> Sistema central de la Intranet Indusegur · REST API · v1.0.0
 
 ---
 
