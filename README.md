@@ -130,13 +130,13 @@ cd backend
 # 3. Crear entorno virtual
 python -m venv venv
 
-# 4. Activar entorno virtual (Windows)
+# 4. Activar entorno virtual
 venv\Scripts\activate
 
 # 5. Instalar dependencias
 pip install -r requirements.txt
 
-# 6. Configurar variables de entorno (PowerShell)
+# 6. Configurar variables de entorno
 $env:DB_USER="postgres"
 $env:DB_PASSWORD="123456"
 $env:DB_HOST="localhost"
