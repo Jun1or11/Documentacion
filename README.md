@@ -87,7 +87,7 @@ HTTP Request
 
 ---
 
-## 6. Flujo de una petición autenticada
+## 5. Flujo de una petición autenticada
 
 ```
 Cliente (React)
@@ -113,4 +113,10 @@ Response JSON serializado por Pydantic
 
 ---
 
-## 7. Instalación y ejecución
+## 6. Instalación y ejecución
+### Con Docker
+
+
+
+
+### En local (sin Docker)
