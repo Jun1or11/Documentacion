@@ -115,18 +115,23 @@ Response JSON serializado por Pydantic
 
 ## 6. Instalación y ejecución
 ### Con Docker
+```bash
+# Clonar el repositorio
+git clone <url-del-repositorio>
 
--
--
--
--
--
--
--
+# 1. Ir al proyecto
+cd indusegur-intranet-main
 
+# 2. Construir y levantar los servicios
+docker compose up -d --build
+
+```
 
 ### En local (sin Docker)
 ```bash
+# Clonar el repositorio
+git clone <url-del-repositorio>
+
 # 1. Ir al proyecto
 cd indusegur-intranet-main
 
