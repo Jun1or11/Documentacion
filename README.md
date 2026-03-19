@@ -121,7 +121,8 @@ git clone <url-del-repositorio>
 
 # 1. Ir al proyecto
 cd indusegur-intranet-main
-# 2. (Opcional) Configurar secrets
+
+# 2. Configurar secrets 
 # Crear carpeta (Linux / Git Bash)
 mkdir -p /opt/aegis-secrets
 
