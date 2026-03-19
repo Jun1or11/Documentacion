@@ -121,11 +121,34 @@ git clone <url-del-repositorio>
 
 # 1. Ir al proyecto
 cd indusegur-intranet-main
+# 2. (Opcional) Configurar secrets
+# Crear carpeta (Linux / Git Bash)
+mkdir -p /opt/aegis-secrets
 
-# 2. Construir y levantar los servicios
+# Crear archivos necesarios
+echo "postgres" > /opt/aegis-secrets/db_user.txt
+echo "123456"   > /opt/aegis-secrets/db_password.txt
+echo "http://localhost" > /opt/aegis-secrets/odoo_url.txt
+echo "test"     > /opt/aegis-secrets/odoo_db.txt
+echo "admin"    > /opt/aegis-secrets/odoo_user.txt
+echo "admin"    > /opt/aegis-secrets/odoo_password.txt
+
+# (En Windows crear manualmente: C:\opt\aegis-secrets\)
+
+# 3. Construir y levantar servicios
 docker compose up -d --build
 
+# 4. Verificar contenedores
+docker ps
+
+# 5. Ver logs (opcional)
+docker compose logs -f
+
 ```
+Probar en el navegador:
+API base: http://localhost:8080
+
+Documentación (Swagger): http://localhost:8080/api/docs
 
 ### En local (sin Docker)
 ```bash
