@@ -122,7 +122,7 @@ git clone <url-del-repositorio>
 # 1. Ir al proyecto
 cd indusegur-intranet-main
 
-# 2. Configurar secrets 
+# 2. Configurar secrets (EN WSL / UBUNTU)
 sudo mkdir -p /opt/aegis-secrets
 
 # Crear archivos necesarios
@@ -141,6 +141,9 @@ docker ps
 
 # 5. Ver logs (opcional)
 docker compose logs -f
+
+# 6. Verificar contenedores
+docker ps
 
 ```
 Probar en el navegador:
