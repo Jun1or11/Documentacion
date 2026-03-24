@@ -87,6 +87,98 @@ HTTP Request
 
 ---
 
+## 5. Componentes Principales
+
+### 5.1 Endpoints
+
+
+####  Auth — `/auth`
+
+| Método | Ruta                  | Acceso | Descripción                            |
+|--------|-----------------------|--------|----------------------------------------|
+| POST   | `/auth/login`         | Público | Autentica y devuelve JWT              |
+| GET    | `/auth/me`            | Usuario | Datos del usuario autenticado         |
+| POST   | `/auth/crear-usuario` | Admin   | Crea cuenta para un colaborador       |
+| GET    | `/auth/usuarios`      | Admin   | Lista todos los usuarios              |
+| PATCH  | `/auth/usuarios/{id}` | Admin   | Modifica rol o estado de un usuario   |
+
+####  Colaboradores — `/colaboradores`
+
+| Método | Ruta                                         | Acceso | Descripción                        |
+|--------|----------------------------------------------|--------|------------------------------------|
+| GET    | `/colaboradores/`                            | Usuario | Lista colaboradores               |
+| GET    | `/colaboradores/{id}`                        | Usuario | Obtiene un colaborador            |
+| POST   | `/colaboradores/`                            | Admin   | Crea colaborador                  |
+| PATCH  | `/colaboradores/{id}`                        | Admin   | Edita datos del colaborador       |
+| PATCH  | `/colaboradores/{id}/baja`                   | Admin   | Da de baja al colaborador         |
+| PATCH  | `/colaboradores/{id}/area`                   | Admin   | Cambia área del colaborador       |
+| GET    | `/colaboradores/{id}/historial-areas`        | Admin   | Historial de cambios de área      |
+
+####  KPIs — `/kpis`
+
+| Método | Ruta                          | Acceso | Descripción                                     |
+|--------|-------------------------------|--------|-------------------------------------------------|
+| GET    | `/kpis/resumen`               | Usuario | Resumen KPI por período                        |
+| GET    | `/kpis/dashboard`             | Usuario | Dashboard KPI individual (semana + trimestre)  |
+| GET    | `/kpis/dashboard/equipo`      | Usuario | Dashboard KPI del equipo con ranking           |
+| GET    | `/kpis/llamadas`              | Usuario | Lista llamadas por período                     |
+| POST   | `/kpis/llamadas`              | Usuario | Registra llamada                               |
+| DELETE | `/kpis/llamadas/{id}`         | Usuario | Elimina llamada                                |
+| GET    | `/kpis/visitas`               | Usuario | Lista visitas por período                      |
+| POST   | `/kpis/visitas`               | Usuario | Registra visita                                |
+| DELETE | `/kpis/visitas/{id}`          | Usuario | Elimina visita                                 |
+| GET    | `/kpis/clientes-nuevos`       | Usuario | Lista clientes nuevos por período              |
+| POST   | `/kpis/clientes-nuevos`       | Usuario | Registra cliente nuevo                         |
+| DELETE | `/kpis/clientes-nuevos/{id}`  | Usuario | Elimina registro                               |
+| GET    | `/kpis/tiempo-cotizacion`     | Usuario | Lista tiempos de cotización                    |
+| POST   | `/kpis/tiempo-cotizacion`     | Usuario | Registra tiempo de cotización                  |
+| DELETE | `/kpis/tiempo-cotizacion/{id}`| Usuario | Elimina registro                               |
+| GET    | `/kpis/gastos`                | Usuario | Lista gastos (`?todos=true` para equipo)       |
+| POST   | `/kpis/gastos`                | Usuario | Registra gasto                                 |
+| DELETE | `/kpis/gastos/{id}`           | Usuario | Elimina gasto                                  |
+| GET    | `/kpis/facturacion`           | Usuario | Lista facturación por período                  |
+| POST   | `/kpis/facturacion`           | Usuario | Registra facturación                           |
+| DELETE | `/kpis/facturacion/{id}`      | Usuario | Elimina registro                               |
+
+####  Áreas — `/areas`
+
+| Método | Ruta           | Acceso | Descripción          |
+|--------|----------------|--------|----------------------|
+| GET    | `/areas/`      | Usuario | Lista áreas         |
+| POST   | `/areas/`      | Admin   | Crea área           |
+| PATCH  | `/areas/{id}`  | Admin   | Edita área          |
+
+####  KPI Metas — `/kpi`
+
+| Método | Ruta                                | Acceso | Descripción                          |
+|--------|-------------------------------------|--------|--------------------------------------|
+| GET    | `/kpi/definiciones`                 | Usuario | Lista definiciones de KPIs          |
+| GET    | `/kpi/metas`                        | Admin   | Lista metas por período y área      |
+| GET    | `/kpi/metas/colaborador/{id}`       | Usuario | Metas de un colaborador             |
+| POST   | `/kpi/metas`                        | Admin   | Crea o actualiza meta (upsert)      |
+| DELETE | `/kpi/metas/{id}`                   | Admin   | Elimina meta                        |
+| GET    | `/kpi/metas/area/{id}`              | Admin   | Metas de toda el área               |
+
+####  Semanas Fiscales — `/semanas-fiscales`
+
+| Método | Ruta                              | Acceso | Descripción                           |
+|--------|-----------------------------------|--------|---------------------------------------|
+| GET    | `/semanas-fiscales/actual`        | Usuario | Semana fiscal en curso               |
+| GET    | `/semanas-fiscales/{anio}`        | Usuario | Trimestres del año                   |
+| GET    | `/semanas-fiscales/{anio}/{trim}` | Usuario | Semanas de un trimestre              |
+| POST   | `/semanas-fiscales/generar`       | Admin   | Genera semanas fiscales de trimestre |
+| DELETE | `/semanas-fiscales/{anio}/{trim}` | Admin   | Elimina un trimestre completo        |
+
+####  Endpoints de sistema
+
+| Método | Ruta      | Descripción                              |
+|--------|-----------|------------------------------------------|
+| GET    | `/`       | Health check básico (status + version)  |
+| GET    | `/health` | Verifica conectividad con la base de datos |
+
+---
+
+
 ## 5. Flujo de una petición autenticada
 
 ```
