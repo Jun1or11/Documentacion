@@ -179,7 +179,7 @@ HTTP Request
 ---
 
 
-## 5. Flujo de una petición autenticada
+## 6. Flujo de una petición autenticada
 
 ```
 Cliente (React)
@@ -204,8 +204,68 @@ Response JSON serializado por Pydantic
 ```
 
 ---
+ 
+## 7. Base de datos
+ 
+- **Motor:** PostgreSQL 16 (Alpine)
+- **Nombre de la BD:** `aegis_intranet`
+- **ORM:** SQLAlchemy 2.0 (estilo declarativo)
+- **Migraciones:** Alembic
+ 
+### Entidades / Modelos principales (`app/models/tables.py`)
+ 
+**Usuarios & Personas**
+ 
+| Modelo | Descripción |
+|--------|-------------|
+| `Colaborador` | Información base de la persona (nombres, cargos, vínculos, etc.). |
+| `User` | Credenciales corporativas vinculadas lógicamente a un `Colaborador`. |
+| `ColaboradorOdoo` | Sincronización de registros directos desde Odoo. |
+| `ColaboradorAreaHistorial` | Rastreo de movimientos y vigencia de áreas de un empleado a través del tiempo. |
+ 
+**Catálogos & Tiempo**
+ 
+| Modelo | Descripción |
+|--------|-------------|
+| `Area` | Agrupación lógica dentro de la empresa. |
+| `SemanaFiscal` | Mapeo estricto del tiempo en años y trimestres. |
+ 
+**Indicadores (KPIs)**
+ 
+| Modelo | Descripción |
+|--------|-------------|
+| `KPIDefinicion` | Estructura de definición del KPI. |
+| `KPIMeta` | Valor objetivo de la revisión. |
+| Registros eventuales | Tablas satélite como `RegistroLlamada`, `RegistroGasto`, `RegistroFacturacion`, `RegistroVisita`, etc., unidas jerárquicamente al colaborador respectivo. |
+ 
+---
 
-## 6. Instalación y ejecución
+```
+## 5. Manejo de errores
+ 
+Los errores están manejados explícitamente y centralizados mediante el sistema de excepciones nativo de FastAPI.
+ 
+- **Tipo de respuesta:** Se lanzan excepciones del tipo `HTTPException` importadas de `fastapi`.
+- **Formato devuelto:**
+ 
+```json
+{
+  "detail": "Mensaje técnico o descriptivo sobre el fallo."
+}
+```
+ 
+**Códigos HTTP utilizados:**
+ 
+| Código | Significado | Ejemplo de uso |
+|--------|-------------|----------------|
+| `400 Bad Request` | Incoherencias solicitadas por el cliente | "Área ya existente" |
+| `401 Unauthorized` | Sin login o rol inválido | Acceso sin token |
+| `403 Forbidden` | Privilegios insuficientes | Ruta solo para admins |
+| `404 Not Found` | Registro no encontrado | ID inexistente en DB |
+
+---
+
+## 8. Instalación y ejecución
 ### Con Docker
 ```bash
 # Clonar el repositorio
