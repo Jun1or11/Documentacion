@@ -240,7 +240,7 @@ Response JSON serializado por Pydantic
  
 ---
 
-## 5. Manejo de errores
+## 8. Manejo de errores
  
 Los errores están manejados explícitamente y centralizados mediante el sistema de excepciones nativo de FastAPI.
  
@@ -264,7 +264,7 @@ Los errores están manejados explícitamente y centralizados mediante el sistema
 
 ---
 
-## 8. Variables de Entorno
+## 9. Variables de Entorno
  
 Las credenciales se proveen exclusivamente mediante **Docker Secrets** montados en `/run/secrets/`. No se usa archivo `.env` en producción.
  
@@ -290,7 +290,7 @@ Variables con valores por defecto (no requieren secret):
 
 ---
 
-## 9. Manejo de autenticación
+## 10. Manejo de autenticación
  
 El backend protege sus rutas mediante **OAuth2 con JWT (JSON Web Tokens)**.
  
@@ -312,7 +312,7 @@ El backend protege sus rutas mediante **OAuth2 con JWT (JSON Web Tokens)**.
  
 ---
 
-## 10. Instalación y ejecución
+## 11. Instalación y ejecución
 ### Con Docker
 ```bash
 # Clonar el repositorio
