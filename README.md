@@ -265,7 +265,55 @@ Los errores están manejados explícitamente y centralizados mediante el sistema
 
 ---
 
-## 8. Instalación y ejecución
+## 8. Variables de Entorno
+ 
+Las credenciales se proveen exclusivamente mediante **Docker Secrets** montados en `/run/secrets/`. No se usa archivo `.env` en producción.
+ 
+| Secret File | Variable mapeada | Descripción |
+|-------------|------------------|-------------|
+| `db_user.txt` | `DB_USER` | Usuario de PostgreSQL |
+| `db_password.txt` | `DB_PASSWORD` | Contraseña de PostgreSQL |
+| `odoo_url.txt` | `ODOO_URL` | URL del servidor Odoo |
+| `odoo_db.txt` | `ODOO_DB` | Base de datos de Odoo |
+| `odoo_user.txt` | `ODOO_USER` | Usuario de Odoo |
+| `odoo_password.txt` | `ODOO_PASSWORD` | Contraseña de Odoo |
+ 
+> Los archivos de secrets deben existir en el servidor en `/opt/aegis-secrets/` antes de ejecutar Docker Compose.
+ 
+Variables con valores por defecto (no requieren secret):
+ 
+| Variable | Default |
+|----------|---------|
+| `DB_HOST` | `db` |
+| `DB_PORT` | `5432` |
+| `DB_NAME` | `aegis_intranet` |
+| `TAILSCALE_IP` | `100.76.137.2` |
+
+---
+
+## 9. Manejo de autenticación
+ 
+El backend protege sus rutas mediante **OAuth2 con JWT (JSON Web Tokens)**.
+ 
+- **Generación y firma:** Se utiliza la librería `jose` con una `SECRET_KEY` simétrica bajo el algoritmo **HMAC (HS256)**.
+- **Seguridad de contraseñas:** Las contraseñas se almacenan mediante hashing iterativo con **bcrypt** (`passlib`).
+ 
+### Flujo de acceso
+ 
+1. El cliente envía sus credenciales al endpoint `/api/auth/login`.
+2. La respuesta incluye un `access_token` temporal (expiración: **8 horas** por defecto).
+3. Los accesos subsiguientes transmiten dicho token en el header HTTP:
+   ```
+   Authorization: Bearer <token>
+   ```
+ 
+**Dependencias protegidas:**
+- `get_current_user` — valida el payload del token y devuelve al usuario de la DB.
+- `get_current_admin` — derivado del anterior; asegura roles administrativos al acceder.
+ 
+---
+
+## 10. Instalación y ejecución
 ### Con Docker
 ```bash
 # Clonar el repositorio
