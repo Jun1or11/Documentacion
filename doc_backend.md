@@ -240,7 +240,6 @@ Response JSON serializado por Pydantic
  
 ---
 
-```
 ## 5. Manejo de errores
  
 Los errores están manejados explícitamente y centralizados mediante el sistema de excepciones nativo de FastAPI.
