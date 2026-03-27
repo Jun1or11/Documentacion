@@ -40,11 +40,14 @@ Adicionalmente, se configuró el sistema de rutas de la aplicación y un cliente
 | 12/03/26 | f775d2e | registros: date fixes | Se agregó fmtFecha para formatear fechas a DD/MM/YYYY, se añadió el tipo de gasto visita, se ajustó el idioma a es-PE y se mejoró la visualización de inputs de fecha. |
 | 12/03/26 | 0152730 | unusedlocals->false | Se desactivó la regla noUnusedLocals en `tsconfig.app.json` para permitir variables locales sin usar. |
 | 13/03/26 | 7460e0a | clean unused variables & fix dates | Se eliminaron constantes mock, se comentó tab de notificaciones y su componente, se simplificó inicialización de meses. |
+| 26/03/26 | 7990c8e | remove forms from facturacion & clientes_nuevos | Se eliminó el formulario de registro manual de facturación y se reemplazó TabRegistroSimple por un componente dedicado TabClientesNuevos, ambos con banner indicando que la data se sincroniza desde "Cuentas por Cobrar". Se agregó el campo num_doc a la tabla de facturación. |
+| 26/03/26 | b61b6e4 | fix: tab gastos | Se cambió el cálculo de gastos de total a promedio del período y se corrigió el tipo de monto a Number para el formateo. |
+| 26/03/26 | dfca148 | fix dashboard colors schema | Se actualizó el esquema de colores del dashboard agregando un estado gris para sin data y verde oscuro para más del 120%, y se ajustaron los umbrales y etiquetas de estado en PromedioCard. |
 
 
 
 ## Resumen Final
-- **Período:** 03/03/2026 – 13/03/2026 (10 días)  
-- **Total de Commits:** 22 (incluye setup inicial y mejoras)  
+- **Período:** 03/03/2026 – 26/03/2026 (23 días)  
+- **Total de Commits:** 25 (incluye setup inicial y mejoras)  
 - **Observación:** Los commits reflejan cambios reales y necesarios en el proyecto, se trabajó con claridad, corrigiendo o ajustando partes del proyecto.
 
