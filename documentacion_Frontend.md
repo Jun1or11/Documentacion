@@ -43,10 +43,16 @@ Adicionalmente, se configuró el sistema de rutas de la aplicación y un cliente
 | 26/03/26 | 7990c8e | remove forms from facturacion & clientes_nuevos | Se eliminó el formulario de registro manual de facturación y se reemplazó TabRegistroSimple por un componente dedicado TabClientesNuevos, ambos con banner indicando que la data se sincroniza desde "Cuentas por Cobrar". Se agregó el campo num_doc a la tabla de facturación. |
 | 26/03/26 | b61b6e4 | fix: tab gastos | Se cambió el cálculo de gastos de total a promedio del período y se corrigió el tipo de monto a Number para el formateo. |
 | 26/03/26 | dfca148 | fix dashboard colors schema | Se actualizó el esquema de colores del dashboard agregando un estado gris para sin data y verde oscuro para más del 120%, y se ajustaron los umbrales y etiquetas de estado en PromedioCard. |
+| 28/03/26 | 0ab1a37 | fix: api url | Se actualizó la baseURL en `src/api/client.ts` para usar la URL de producción `https://intranet.indusegur.com.pe/api` |
+| 28/03/26 | 8ff1cbc | fix: page name & icon | Se actualizó el título de la página a Intranet | Indusegur, se reemplazó el favicon por defecto de Vite por el logo de la empresa. |
+| 28/03/26 | 8f37863 | refactor: regorganize pages by area & rename ventas routes | Se reorganizó la estructura de páginas por área, moviendo `Dashboard.tsx` y `Registro.ts` a `pages/areas/ventas/` y renombrándolos VentasDashboard y VentasRegistro. Se actualizaron las rutas a `/ventas/dashboard` y `/ventas/registro`, se agregó AreaRoute para control de acceso por área, y se crearon archivos para las demás áreas. |
+| 28/03/26 | 8c32f92 | coming soon placeholders in dashboards | Se agregaron placeholders Coming Soon para dashboards de distintas áreas utilizando el componente AreaComingSoon. |
+| 28/03/26 | 0cad607 | dashboard routes | Se agregaron rutas de dashboards por área (ventas, logística, backoffice, marketing, administración y contabilidad) y se actualizó la navegación en Layout con control de acceso según rol. |
+| 28/03/26 | b01532b | refactor: colors & implement light/dark mode switch | Se refactorizó el sistema de colores utilizando variables CSS y se implementó el modo claro/oscuro con persistencia en localStorage. Además, se adaptaron múltiples componentes para soportar ambos temas. |
 
 
 
 ## Resumen Final
-- **Período:** 03/03/2026 – 26/03/2026 (23 días)  
-- **Total de Commits:** 25 (incluye setup inicial y mejoras)  
+- **Período:** 03/03/2026 – 28/03/2026 (25 días)  
+- **Total de Commits:** 31 (incluye setup inicial y mejoras)  
 
