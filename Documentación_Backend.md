@@ -60,10 +60,11 @@ También se inicializó Alembic como sistema de migraciones, reemplazando la cre
 | 16/03/26 | 609a750 | Prueba de conexion al sheets por API de Google Sheets | Se crearon `endpoints/sheets.py` y `services/sheets_service.py` con la conexión a Google Sheets vía gspread y el endpoint GET /sheets/preview que retorna los primeros 10 registros de la hoja **Cuentas Por Cobrar**. Se registró el router bajo el prefijo /sheets en `api.py`. |
 | 26/03/26 | e3f530f | sheets connection + endpoints + clientes nuevos | Se implementó la sincronización automática con Google Sheets: `sync_service.py` inserta facturas nuevas y detecta clientes nuevos por RUC. Se agregó el endpoint **POST /sheets/sync** y un scheduler diario a las 6am con apscheduler. |
 | 26/03/26 | ea35524 | fix: registro_facturacion & new col nro_doc & migration | Se generó la migración Alembic `a96be8fb3f78` que agrega **num_doc** como columna única a registro_facturacion. Se actualizó el modelo, `sync_service.py` para usar **num_doc** como clave de deduplicación, y se corrigió el campo de total en `sheets_service.py` a **TOTAL FINAL SIN IGV**. |
-| 26/03/26 | 1dc52a0 | fix: schemas facturacion-num_doc | Se agregó el campo opcional **num_doc** al schema FacturacionResponse en `app/schemas/kpi.py` |
+| 26/03/26 | 1dc52a0 | fix: schemas facturacion-num_doc | Se agregó el campo opcional **num_doc** al schema FacturacionResponse en `app/schemas/kpi.py`. |
+| 28/03/26 | 034fbd3 | fix: port dockercompose | Se cambió el binding del proxy Nginx de `100.76.137.2:8080` a `127.0.0.1:8080`. |
 
 ## Resumen Final
-- **Período:** 18/02/2026 – 26/03/2026 (41 días)  
+- **Período:** 18/02/2026 – 28/03/2026 (43 días)  
 - **Total de Commits:** 51 (incluye setup inicial y mejoras)  
 - **Observación:** *El backend presenta una base funcional con autenticación, gestión de colaboradores, áreas y KPIs implementados. El desarrollo fue iterativo con varias correcciones a lo largo del período*.
 
