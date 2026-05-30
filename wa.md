@@ -33,23 +33,6 @@ Documento con tablas para visualizar pruebas: Clases de Equivalencia, Valores L�
 
 ## 3. Casos de Prueba Unitarios
 
-Formato: ID | Módulo / Función | Objetivo | Precondición | Pasos | Datos de entrada | Resultado esperado
-
-| ID | Módulo / Función | Objetivo | Precondición | Pasos | Datos de entrada | Resultado esperado |
-|----|------------------|---------|--------------|-------|------------------|-------------------:|
-| UT-01 | `app.core.security.hash_password()` | Verificar que el hash no coincide con la contraseña y `verify_password` valida | Ninguna | Llamar `hash_password`, luego `verify_password` | "Secreto123" | `verify_password` -> True |
-| UT-02 | `app.crud.usuario.create_user()` | Crear usuario correctamente | DB en memoria | Invocar create_user con datos válidos | {dni,email,nombre,password} | Nuevo usuario persistido, password hasheado |
-| UT-03 | `app.crud.reserva.create_reserva()` | Crear reserva con cálculos correctos | Habitacion disponible | Llamar función de creación | {habitacion_id,fecha_checkin,fecha_checkout,huéspedes} | Reserva con `total` calculado correctamente |
-| UT-04 | `app.services.mercado_pago.create_reserva_preference()` | Generar preference con campos obligatorios | MP SDK mock | Llamar create_reserva_preference | reserva_id, total, payer_email | Retorna `init_point` y `id` |
-| UT-05 | `app.services.email_service.send_reserva_confirmed_email()` | Encolar envío de email | SMTP mock | Llamar función | email, reserva_id | Llamada realizada al servicio (mock) |
-| UT-06 | `app.crud.reserva._register_approved_payment()` | Evitar duplicados de pago por referencia | DB con pagos previos | Intentar registrar con misma referencia | reserva_id, payment_id | No duplica, retorna False si existe |
-
-Notas:
-- Usar `pytest` y fixtures para DB (`sqlite:///:memory:`) y mocks (`pytest-mock` o `unittest.mock`).
-- Aislar dependencias externas (MercadoPago, SMTP) con mocks.
-
----
-
 ### Casos de Prueba Unitarios — DNI
 
 | Entrada(CP) | C.Validas | C.Invalida | Acciones | Salida Esperada |
@@ -91,23 +74,6 @@ Notas:
 | "" |  | 48 | • Seleccionar campo Nombre<br>• Registrar nombre<br>• Seleccionar siguiente campo | Error: Campo obligatorio |
 
 
-## 4. Casos de Prueba de Integración
-
-Formato: ID | Flujo | Objetivo | Precondición | Pasos | Resultado esperado
-
-| ID | Flujo | Objetivo | Precondición | Pasos | Resultado esperado |
-|----|-------|---------|--------------|-------|-------------------:|
-| IT-01 | Registro -> Login -> `GET /auth/me` | Verificar flujo completo de registro y obtención de perfil | DB limpia | 1) POST /auth/register 2) POST /auth/login 3) GET /auth/me (Authorization: Bearer) | 201 -> 200 + token -> 200 y datos del usuario |
-| IT-02 | Crear reserva -> Generar preferencia MP -> Simular pago (webhook) | Validar integración reserva-pago-notificación | Usuario autenticado, habitación disponible | 1) POST /reservas 2) POST /reservas/{id}/pagar (obtener init_point) 3) Simular webhook POST /reservas/webhook/mercadopago con payment aprobado y external_reference=reserva_id | Reserva cambia a `activo`, pago registrado, correo encola/do |
-| IT-03 | Pago fallido -> Reserva queda `pendiente` y no se registra pago | Manejo de errores en flujo de pagos | Usuario autenticado, habitación disponible | 1) POST /reservas 2) Simular webhook con status != "approved" | Reserva `pendiente`, no hay pago aprobado en DB |
-| IT-04 | Obtener historial paginado (`GET /reservas?limit=10&page=2`) | Validar paginación y filtros | Usuario con >20 reservas | 1) Crear >20 reservas 2) GET /reservas?limit=10&skip=10 | 200 y 10 ítems retornados |
-| IT-05 | Admin: crear pago manual y obtener resumen mensual | Validar endpoints admin para pagos | Usuario admin + reservas/pagos en DB | 1) POST /pagos 2) GET /pagos/resumen/mes-actual | Pago creado y resumen con totales correctos |
-
-Notas de Integración:
-- Ejecutar en entorno de staging o con servicios mockeados (MercadoPago, SMTP) cuando no se disponga de claves reales.
-- Probar webhooks con payloads reales (simulados) y verificar idempotencia.
-
----
 
 ### Caso de Prueba de Integración - Módulo Registro de Usuario y Reserva
 
@@ -123,3 +89,5 @@ Notas de Integración:
 | 8 | 12345678, usuario@gmail.com, Secreto1, Juan Pérez, Hab:101, Noches:0 |  | 55 | 1) POST /reservas con 0 noches | 400 + Error: La cantidad de noches debe ser mayor a 0 |
 | 9 | 12345678, usuario@gmail.com, Secreto1, Juan Pérez, - (duplicado) |  | 32,35 | 1) POST /auth/register con DNI/email ya existente | 409 + Error: Usuario ya existe |
 | 10 | "", "", "", "", - |  | 5,9,19,25,28 | 1) POST /auth/register con campos vacíos | 400 + Error: Campos obligatorios |
+
+
