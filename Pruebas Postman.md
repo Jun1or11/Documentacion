@@ -117,11 +117,11 @@ Validar que un nuevo huésped puede registrarse correctamente en Hotel Nova.
 - Body (raw JSON):
 ```json
 {
-  "dni": "12345678",
-  "nombre": "JUAN PEREZ",
-  "email": "juanperez@gmail.com",
-  "password": "MiPassword1"
+  "dni": "74314040",
+  "email": "junior@gmail.com",
+  "password": "Junior11"
 }
+
 ```
 
 **Resultado esperado:**
